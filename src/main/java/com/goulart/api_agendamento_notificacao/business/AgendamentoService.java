@@ -3,6 +3,7 @@ package com.goulart.api_agendamento_notificacao.business;
 import com.goulart.api_agendamento_notificacao.business.mapper.IAgendamentoMapper;
 import com.goulart.api_agendamento_notificacao.controller.dto.in.AgendamentoRecord;
 import com.goulart.api_agendamento_notificacao.controller.dto.out.AgendamentoRecordOut;
+import com.goulart.api_agendamento_notificacao.infrastructure.entities.Agendamento;
 import com.goulart.api_agendamento_notificacao.infrastructure.exception.NotFoundException;
 import com.goulart.api_agendamento_notificacao.infrastructure.repositories.AgendamentoRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,5 +25,13 @@ public class AgendamentoService {
         return agendamentoMapper.paraOut(
                 repository.findById(id)
                         .orElseThrow(() -> new NotFoundException("ID Não encontrado")));
+    }
+
+    public void cancelarAgendamentoPorId(Long id) {
+        Agendamento agendamento = repository.findById(id)
+                .orElseThrow(() -> new NotFoundException("ID Não encontrado"));
+
+        repository.save(
+                agendamentoMapper.paraEntityCancelamento(agendamento));
     }
 }
