@@ -3,7 +3,7 @@
 
 Esse projeto foi desenvolvido para um desafio técnico visando apresentar habilidades de desenvolvedor java backend e tem como escopo o cadastro de notificações para posterior envio.
 
-Instruido por: [Angélica Weiller](https://github.com/angelicaweiler/)
+Instruido por: [Angélica Weiler](https://github.com/angelicaweiler/)
 
 ## Rodando localmente
 
